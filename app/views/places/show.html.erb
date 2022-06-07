@@ -1,22 +1,22 @@
-<div class = "ps-2 pe-2">
+<div>
   <h1><%= @place["name"] %></h1>
 
-  <p>
+  <div class = "mt-4 mb-4">
     <a class= "btn btn-dark" href="/posts/new?place_id=<%= @place["id"]%>"  role = "button" >New Post</a>
-  </p>
+  </div>
 
 
   <% if @current_user %>
 
   <div class="row">
     <% for post in @posts %>
-      <div class="col-lg-4 pb-2"> <!-- col-sm-6 -->
+      <div class="col-lg-4 pb-2">
         <h3><%= post["title"] %></h3>
         <h4><%= post["posted_on"] %></h4>
         <% if post.uploaded_image.attached? %>
           <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
         <% else %>
-          <!-- should we show anything for no image post? -->
+
         <% end %>
         <p><%= post["description"] %></p>
       </div>
